@@ -89,3 +89,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: bytedeco/javacpp-presets/.github/actions/redeploy@actions
+  test-flaky:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: mvn test-compile -pl . -am
+      - run: mvn -pl . test -Dtest=org.bytedeco.javacpp.EnumTest
+      - run: mvn -pl . edu.illinois:nondex-maven-plugin:1.1.2:nondex test -Dtest=org.bytedeco.javacpp.EnumTest
