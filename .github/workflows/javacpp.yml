@@ -93,6 +93,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
-      - run: mvn test-compile -pl javacpp -am
+      - run: mvn test-compile -pl . -am
       - run: mvn -pl . test -Dtest=org.bytedeco.javacpp.EnumTest
       - run: mvn -pl . edu.illinois:nondex-maven-plugin:1.1.2:nondex test -Dtest=org.bytedeco.javacpp.EnumTest
